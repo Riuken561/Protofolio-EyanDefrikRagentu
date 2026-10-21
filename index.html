@@ -1,0 +1,823 @@
+
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio | EYAN DEFRIK RAGENTU</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --bg: #080d1b;
+            --card: #111a2e;
+            --blue: #38bdf8;
+            --white: #f1f5f9;
+            --muted: #94a3b8;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: var(--bg);
+            color: var(--white);
+            line-height: 1.7;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(1100px, 90%);
+            margin: auto;
+        }
+
+        /* NAVBAR */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: rgba(8, 13, 27, 0.94);
+            border-bottom: 1px solid #1e293b;
+        }
+
+        nav {
+            min-height: 75px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: var(--blue);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a:hover {
+            color: var(--blue);
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            padding: 80px 0;
+        }
+
+        .hero-content {
+            max-width: 750px;
+        }
+
+        .tag {
+            color: var(--blue);
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-size: clamp(40px, 7vw, 70px);
+            line-height: 1.15;
+            margin: 20px 0;
+        }
+
+        h1 span {
+            color: var(--blue);
+        }
+
+        .hero p {
+            color: var(--muted);
+            max-width: 600px;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 24px;
+            background: var(--blue);
+            color: #08111f;
+            border-radius: 8px;
+            font-weight: bold;
+            margin: 5px 10px 5px 0;
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px #38bdf833;
+        }
+
+        .button-outline {
+            background: transparent;
+            color: var(--blue);
+            border: 1px solid var(--blue);
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 85px 0;
+            scroll-margin-top: 75px;
+        }
+
+        .section-title {
+            font-size: 35px;
+            margin-bottom: 10px;
+        }
+
+        .section-desc {
+            color: var(--muted);
+            margin-bottom: 35px;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 35px;
+            align-items: start;
+        }
+
+        .about-text {
+            color: var(--muted);
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid #26344d;
+            padding: 25px;
+            border-radius: 14px;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--blue);
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .skill {
+            padding: 7px 14px;
+            border-radius: 6px;
+            color: var(--blue);
+            background: #38bdf814;
+            border: 1px solid #38bdf833;
+        }
+
+        /* PROJECTS */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .project-icon {
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: var(--muted);
+            margin-bottom: 18px;
+        }
+
+        .project-link {
+            color: var(--blue);
+            font-weight: bold;
+        }
+
+        /* CONTACT */
+        .contact-box {
+            text-align: center;
+            padding: 45px 25px;
+            background: var(--card);
+            border: 1px solid #26344d;
+            border-radius: 16px;
+        }
+
+        .contact-box p {
+            color: var(--muted);
+            margin: 15px 0 25px;
+        }
+
+        footer {
+            padding: 25px 0;
+            text-align: center;
+            color: var(--muted);
+            border-top: 1px solid #1e293b;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 12px;
+                font-size: 13px;
+            }
+
+            .logo {
+                font-size: 21px;
+            }
+
+            .about-grid,
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                min-height: 75vh;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+        }
+
+        @media (max-width: 420px) {
+            nav {
+                flex-direction: column;
+                padding: 12px 0;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header>
+        <nav class="container">
+            <a href="#home" class="logo">Portofolio Saya.</a>
+
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">Tentang</a></li>
+                <li><a href="#projects">Proyek</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- HERO -->
+        <section class="hero container" id="home">
+            <div class="hero-content">
+                
+                <!-- FOTO PROFIL -->
+                <img
+                    src="foto-profil.jpg"
+                    alt="Foto Profil Eyan Defrik Ragentu"
+                    width="280"
+                    height="280"
+                    style="border-radius: 50%; object-fit: cover;"
+                >
+
+                <div class="tag">Mahasiswa Informatika</div>
+
+                <h1>
+                    Halo, saya <span>Eyan Defrik Ragentu.</span><br>
+                    Web Developer Pemula.
+                </h1>
+
+                <p>
+                    Saya tertarik dengan pengembangan website,
+                    desain antarmuka, dan teknologi.
+                    Saya sedang membangun kemampuan untuk
+                    menciptakan solusi digital yang bermanfaat.
+                </p>
+
+                <a href="#projects" class="button">
+                    Lihat Proyek
+                </a>
+
+                <a href="#contact" class="button button-outline">
+                    Hubungi Saya
+                </a>
+            </div>
+        </section>
+
+        <!-- ABOUT -->
+        <section id="about">
+            <div class="container">
+                <h2 class="section-title">Tentang Saya</h2>
+
+                <p class="section-desc">
+                    Mengenal saya dan kemampuan yang sedang dikembangkan.
+                </p>
+
+                <div class="about-grid">
+                    <div class="about-text">
+                        <p>
+                            Saya adalah mahasiswa S1 Informatika
+                            yang memiliki minat pada web development
+                            dan teknologi informasi.
+                        </p>
+
+                        <br>
+
+                        <p>
+                            Saya terus belajar membuat website
+                            yang menarik, responsif, mudah digunakan,
+                            dan dapat membantu menyelesaikan masalah
+                            di kehidupan sehari-hari.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <h3>Keahlian Saya</h3>
+
+                        <div class="skills">
+                            <span class="skill">HTML</span>
+                            <span class="skill">CSS</span>
+                            <span class="skill">JavaScript</span>
+                            <span class="skill">UI/UX Design</span>
+                            <span class="skill">Responsive Design</span>
+                            <span class="skill">Git</span>
+                        </div>
+
+                        <p style="margin-top: 20px; font-size: 14px;">
+                            
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section id="projects">
+            <div class="container">
+                <h2 class="section-title">Proyek Pilihan</h2>
+
+                <p class="section-desc">
+                    Beberapa contoh proyek yang bisa kamu kembangkan.
+                </p>
+
+                <div class="projects-grid">
+                    <article class="card">
+                        <div class="project-icon">💼</div>
+                        <h3>Website Portofolio</h3>
+                        <p>
+                            Website pribadi untuk memperkenalkan
+                            diri, keahlian, dan hasil pekerjaan.
+                        </p>
+                        <a class="project-link" href="#contact">
+                            Lihat Detail →
+                        </a>
+                    </article>
+
+                    <article class="card">
+                        <div class="project-icon">🔎</div>
+                        <h3>Website Lowongan Kerja</h3>
+                        <p>
+                            Konsep platform untuk membantu pencari
+                            kerja menemukan peluang kerja lokal.
+                        </p>
+                        <a class="project-link" href="#contact">
+                            Lihat Detail →
+                        </a>
+                    </article>
+
+                    <article class="card">
+                        <div class="project-icon">🎨</div>
+                        <h3>Desain UI/UX</h3>
+                        <p>
+                            Desain antarmuka yang sederhana,
+                            modern, dan nyaman digunakan.
+                        </p>
+                        <a class="project-link" href="#contact">
+                            Lihat Detail →
+                        </a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact">
+            <div class="container">
+                <div class="contact-box">
+                    <h2 class="section-title">
+                        Mari Terhubung!
+                    </h2>
+
+                    <p>
+                        Punya proyek, ide, atau kesempatan kerja?
+                        Saya terbuka untuk berdiskusi.
+                    </p>
+
+                    <!-- Ganti alamat email di bawah -->
+                    <a
+                        class="button"
+                        href="mailto:emailkamu@example.com"
+                    >
+                        Kirim Email
+                    </a>
+
+                    <!-- Ganti dengan URL GitHub milikmu -->
+                    <a
+                        class="button button-outline"
+                        href="https://github.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        GitHub
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>
+                © <span id="year"></span> DEFRIX.
+                Dibuat dengan HTML dan CSS.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+    </script>
+
+</body>
+</html>
+
+    <title>Portofolio DEFRIX</title>
+
+    <!-- Menghubungkan CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="header">
+        <nav class="navbar container">
+            <a href="#home" class="logo">DEFRIX<span>.</span></a>
+
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">Tentang</a></li>
+                <li><a href="#skills">Keahlian</a></li>
+                <li><a href="#projects">Proyek</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- HERO / BERANDA -->
+        <section class="hero container" id="home">
+
+            <div class="hero-content">
+                <p class="eyebrow">
+                    MAHASISWA INFORMATIKA
+                </p>
+
+                <h1>
+                    Halo, saya <span>DEFRIX.</span>
+                    <br>
+                    Web Developer
+                    <span class="outline-text">in Progress.</span>
+                </h1>
+
+                <p class="hero-description">
+                    Saya tertarik pada pengembangan website,
+                    desain antarmuka, dan teknologi digital.
+                    Saya ingin membangun solusi digital yang
+                    bermanfaat bagi banyak orang.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">
+                        Lihat Proyek
+                    </a>
+
+                    <a href="#contact" class="btn btn-outline">
+                        Hubungi Saya
+                    </a>
+                </div>
+
+                <div class="hero-info">
+                    <div>
+                        <strong>HTML & CSS</strong>
+                        <span>Web Development</span>
+                    </div>
+
+                    <div>
+                        <strong>UI/UX</strong>
+                        <span>Web Design</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FOTO PROFIL -->
+            <div class="hero-image">
+                <div class="image-decoration"></div>
+
+                <div class="image-frame">
+                    <img
+                        src="image1.jpeg"
+                        alt="Foto profil DEFRIX"
+                        class="profile-photo"
+                    >
+                </div>
+
+                <div class="image-caption">
+                    <span class="status-dot"></span>
+                    <div>
+                        <strong>DEFRIX</strong>
+                        <p>Future Web Developer</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- TENTANG SAYA -->
+        <section class="section container" id="about">
+
+            <div class="section-heading">
+                <p class="eyebrow">KENALI SAYA</p>
+                <h2>Tentang <span>Saya</span></h2>
+            </div>
+
+            <div class="about-grid">
+
+                <div class="about-text">
+                    <h3>Membangun ide menjadi kenyataan.</h3>
+
+                    <p>
+                        Saya adalah mahasiswa S1 Informatika
+                        yang memiliki minat dalam teknologi
+                        informasi, pengembangan website,
+                        dan desain antarmuka pengguna.
+                    </p>
+
+                    <p>
+                        Saya terus mengembangkan kemampuan
+                        pemrograman melalui pembelajaran,
+                        eksperimen, dan pembuatan proyek nyata.
+                    </p>
+
+                    <a href="#contact" class="text-link">
+                        Mari berkolaborasi →
+                    </a>
+                </div>
+
+                <div class="about-card">
+                    <div class="about-item">
+                        <span class="about-number">01</span>
+                        <div>
+                            <h4>Web Development</h4>
+                            <p>Membangun website yang responsif.</p>
+                        </div>
+                    </div>
+
+                    <div class="about-item">
+                        <span class="about-number">02</span>
+                        <div>
+                            <h4>UI/UX Design</h4>
+                            <p>Membuat antarmuka yang nyaman digunakan.</p>
+                        </div>
+                    </div>
+
+                    <div class="about-item">
+                        <span class="about-number">03</span>
+                        <div>
+                            <h4>Problem Solving</h4>
+                            <p>Mengembangkan solusi melalui teknologi.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- KEAHLIAN -->
+        <section class="section section-dark" id="skills">
+            <div class="container">
+
+                <div class="section-heading">
+                    <p class="eyebrow">KEMAMPUAN</p>
+                    <h2>Teknologi yang <span>Saya Pelajari</span></h2>
+                    <p class="section-subtitle">
+                        Beberapa teknologi yang saya gunakan
+                        dan terus saya kembangkan.
+                    </p>
+                </div>
+
+                <div class="skills-grid">
+
+                    <div class="skill-card">
+                        <span class="skill-icon">🌐</span>
+                        <h3>HTML</h3>
+                        <p>Menyusun struktur halaman website.</p>
+                    </div>
+
+                    <div class="skill-card">
+                        <span class="skill-icon">🎨</span>
+                        <h3>CSS</h3>
+                        <p>Mendesain tampilan website yang responsif.</p>
+                    </div>
+
+                    <div class="skill-card">
+                        <span class="skill-icon">⚡</span>
+                        <h3>JavaScript</h3>
+                        <p>Menambahkan interaksi pada website.</p>
+                    </div>
+
+                    <div class="skill-card">
+                        <span class="skill-icon">🖌️</span>
+                        <h3>UI/UX Design</h3>
+                        <p>Merancang pengalaman pengguna.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- PROYEK -->
+        <section class="section container" id="projects">
+
+            <div class="section-heading">
+                <p class="eyebrow">PORTOFOLIO</p>
+                <h2>Proyek <span>Pilihan</span></h2>
+                <p class="section-subtitle">
+                    Proyek yang dapat saya kembangkan
+                    untuk menyelesaikan permasalahan nyata.
+                </p>
+            </div>
+
+            <div class="projects-grid">
+
+                <article class="project-card">
+                    <div class="project-visual visual-one">
+                        <span>💼</span>
+                    </div>
+
+                    <div class="project-content">
+                        <p class="project-category">WEB DEVELOPMENT</p>
+                        <h3>Personal Portfolio</h3>
+                        <p>
+                            Website pribadi untuk menampilkan
+                            profil, keahlian, dan proyek.
+                        </p>
+
+                        <div class="project-tags">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                        </div>
+
+                        <a href="#contact" class="text-link">
+                            Detail proyek →
+                        </a>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-visual visual-two">
+                        <span>🔎</span>
+                    </div>
+
+                    <div class="project-content">
+                        <p class="project-category">WEB APPLICATION</p>
+                        <h3>Job Finder Palopo</h3>
+                        <p>
+                            Konsep platform untuk membantu
+                            masyarakat menemukan lowongan kerja lokal.
+                        </p>
+
+                        <div class="project-tags">
+                            <span>Web</span>
+                            <span>UI/UX</span>
+                        </div>
+
+                        <a href="#contact" class="text-link">
+                            Detail proyek →
+                        </a>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-visual visual-three">
+                        <span>🎨</span>
+                    </div>
+
+                    <div class="project-content">
+                        <p class="project-category">UI/UX DESIGN</p>
+                        <h3>Digital Interface</h3>
+                        <p>
+                            Konsep desain antarmuka yang modern,
+                            sederhana, dan mudah digunakan.
+                        </p>
+
+                        <div class="project-tags">
+                            <span>Design</span>
+                            <span>Prototyping</span>
+                        </div>
+
+                        <a href="#contact" class="text-link">
+                            Detail proyek →
+                        </a>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- KONTAK -->
+        <section class="section container" id="contact">
+
+            <div class="contact-box">
+                <p class="eyebrow">HUBUNGI SAYA</p>
+
+                <h2>Punya ide menarik?</h2>
+
+                <p>
+                    Saya terbuka untuk berdiskusi mengenai
+                    proyek, kolaborasi, dan kesempatan magang.
+                </p>
+
+                <!-- Ganti email dengan email milikmu -->
+                <a
+                    href="mailto:emailkamu@example.com"
+                    class="btn btn-primary"
+                >
+                    Kirim Email →
+                </a>
+
+                <div class="social-links">
+                    <!-- Ganti dengan profil milikmu -->
+                    <a
+                        href="https://github.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >GitHub</a>
+
+                    <a
+                        href="https://www.linkedin.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >LinkedIn</a>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <a href="#home" class="logo">DEFRIX<span>.</span></a>
+
+            <p>
+                © <span id="year">2026</span> DEFRIX.
+                Dibuat dengan HTML dan CSS.
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
